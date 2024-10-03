@@ -56,8 +56,6 @@ $ (d^2 E)/(d N^2) = 0 $
 *Generalised PWL*
 $ Delta E_i = epsilon_i arrow.l.double.long (d^2 E) / (d f_i^2) = 0 $
 
-#pause
-
 = DFT+#emph[U]
 
 #grid(align: horizon, columns: (1fr, 1fr), column-gutter: 10pt,
@@ -94,7 +92,6 @@ $ Delta E_i = epsilon_i arrow.l.double.long (d^2 E) / (d f_i^2) = 0 $
   #pause
 - the recipe for calculating $U$ via linear-response involves charge-conserving perturbations
 
-#pause
 #slide(title: "An alternative recipe")[
 #align(center+horizon)[
 #cetz-canvas({
@@ -172,7 +169,7 @@ $ hat(V)^sigma_(U) + hat(V)^sigma_V = sum_(I i sigma) (U^I) / 2 (1 - 2 lambda_i)
 
 #pause
 where we have the hybridised orbitals
-$ |tilde(phi)_i^(I sigma) angle.r = |phi_i^(I sigma) angle.r + sum_J^* sum_j (2 V^(I J) n_(j i)^(J I sigma))/(U^J (1 - 2 lambda^(J sigma)_j) - U^I (1 - 2 lambda^(I sigma)_i))|phi_j^(J sigma) angle.r $
+$ |tilde(phi)_i^(I sigma) angle.r = |phi_i^(I sigma) angle.r + sum_J^* sum_j c^(I J sigma)_(i j) |phi_j^(J sigma) angle.r space space space space space space space space space space space c^(I J sigma)_(i j) = (2 V^(I J) n_(j i)^(J I sigma))/(U^J (1 - 2 lambda^(J sigma)_j) - U^I (1 - 2 lambda^(I sigma)_i)) $
 
 ]
 
@@ -183,7 +180,8 @@ $ hat(V)^sigma_(U + V) = sum_(I i sigma) (U^I) / 2 (1 - 2 lambda_i) |tilde(phi)^
 #pause
 - DFT+#emph[U]+#emph[V] is equivalent to DFT+#emph[U] using hybridised projectors! #pause
 - the degree of hybridisation ($c_(i j)^(I J sigma)$) depends on $U$, $V$, $n^(I J)_(i j)$ #pause
-- only valid in $U >> V$ limit, not self-consistent
+- only valid in $U >> V$ limit, not self-consistent #pause
+- PWL applies!
 
 #slide[
 #grid(align: horizon+center, columns: 5, column-gutter: 10pt, row-gutter: 10pt,
@@ -212,7 +210,7 @@ Suppose we now want to linearise $E$ wrt the occupation of the hybridised orbita
 $ tilde(chi)^(I J) = (d tilde(n)^(I I)) / (d alpha^J) = chi^(I J) + 2 sum_K^* sum_(i j sigma) c_(i j)^(I K sigma) (d n_(j i)^(K I sigma)) / (d alpha^J) $
 
 #pause
-We have terms that don't appear in conventional LR! #pause
+We have terms that don't appear in conventional LR!
 // cf. conventional LR $(d^2E) / (d n^(I I sigma) d n^(J J sigma))$: no connection with PWL, #pause leads to unphysical results e.g.
 // 
 // $ E(n^(1 sigma) &- delta n, n^(2 sigma) + delta n) - E (n^(1 sigma), n^(2 sigma)) \ & = delta n (- (d E) / (d n^(1 sigma)) + (d E) / (d n^(2 sigma))) + 1 / 2 delta n^2 (cancel((d^2 E) / (d (n^(1 sigma))^2)) - 2 cancel((d^2 E) / (d n^(1 sigma) d n^(2 sigma))) + cancel((d^2 E) / (d (n^(2 sigma))^2))) $
@@ -267,10 +265,10 @@ $ E^bold(alpha)_"KI" [{rho_i}]
 // = & E_"DFT" [rho] + sum_i [- (E_"DFT" [rho] - E_"DFT" [rho^(f_i arrow.r 0)]) + f_i (E_"DFT" [rho^(f_i arrow.r 1)] - E_"DFT" [rho^(f_i arrow.r 0)])] \
 = & E_"DFT" [rho] + sum_i alpha_i [- (E_"Hxc" [rho] - E_"Hxc" [rho - rho_i]) + f_i (E_"Hxc" [rho - rho_i + n_i] - E_"Hxc" [rho - rho_i])] $
 
-- enforces $(d^2 E) / (d f_i^2) = 0 $, where ${f_i}$ is the occupation of some set of orbitals ${phi_i}$
-- if ${phi_i}$ are eigenstates then this is GPWL
+- #pause enforces $(d^2 E) / (d f_i^2) = 0 $, where ${f_i}$ is the occupation of some set of orbitals ${phi_i}$
+- #pause if ${phi_i}$ are eigenstates then this is GPWL
 
-#matrix-slide(title: "Catch 22")[
+#matrix-slide(title: "The problem with bulk systems")[
 #image(width: 100%, "figures/nguyen_bulk_limit.png")
 ][
 - if applied to eigenstates the correction fails for bulk systems #pause
@@ -278,8 +276,8 @@ $ E^bold(alpha)_"KI" [{rho_i}]
 
 #pause
 
-Open questions:
-- why does correcting GPWL for Wannier functions work?
+But now we must ask
+- why does correcting GPWL for Wannier functions work? #pause
 - off-diagonal corrections?
 ]
 
@@ -313,9 +311,9 @@ Open questions: #pause
    Do we need to turn to...
    - understanding the structure of self-energies@Tamai2019?
    - ensemble DFT?
-   - reduced density matrix functional theory (especially for static correlation)?
-   - ... #pause
  - are off-diagonal corrections to these orbitals/subspaces physical?
+ - are we expecting too much of our approximations?
+   - e.g. BLOR and SCE -- easier with reduced density matrix functional theory?
 
 #focus-slide[Thank you!]
 
