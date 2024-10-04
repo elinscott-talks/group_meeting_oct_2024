@@ -108,7 +108,7 @@ $ Delta E_i = epsilon_i arrow.l.double.long (d^2 E) / (d f_i^2) = 0 $
     let angle = i / 7 * 2 * calc.pi
     let rng = gen-rng(42 + i)
     let (rng, jitter) = normal(rng, size: 6, scale: 0.05)
-    bezier((0.7 * calc.sin(angle) - 5 + jitter.at(0), 2 + 0.7 * calc.cos(angle) + jitter.at(1)), (1.5 * calc.sin(angle) -5 + jitter.at(2), 2 + 1.5 * calc.cos(angle) + jitter.at(3)), (1.1 * calc.sin(angle) -5 + 2 * jitter.at(4), 2 + 1.1 * calc.cos(angle) + 2 * jitter.at(5)), mark: (end: "stealth"), stroke: 2pt + white)
+    bezier((0.6 * calc.sin(angle) - 5 + jitter.at(0), 2 + 0.6 * calc.cos(angle) + jitter.at(1)), (1.5 * calc.sin(angle) -5 + jitter.at(2), 2 + 1.5 * calc.cos(angle) + jitter.at(3)), (1.1 * calc.sin(angle) -5 + 2 * jitter.at(4), 2 + 1.1 * calc.cos(angle) + 2 * jitter.at(5)), mark: (end: "stealth"), stroke: 2pt + white)
   }
   (pause,)
   content((-5, -0.5), text($Delta n != 0; Delta N = 0$))
@@ -151,7 +151,11 @@ Harder to relate to PWL. For $s$-orbital Hubbard subspaces...
 $ (d^2 E_V) / (d n^(I J sigma) d n^(J I sigma)) = V^(I J) $
 
 #pause
-_cf._ the $+V$ LR recipe $chi^(I J) = (d n^(I I)) / (d alpha^J)$ which relates to $(d^2 E) / (d n^(I sigma) d n^(J sigma)) = 0$
+_cf._ the $+V$ LR recipe $chi^(I J) = (d n^(I I)) / (d alpha^J)$ which relates to $(d^2 E) / (d n^(I sigma) d n^(J sigma))$
+
+#pause
+
+In lieu of PWL, we can resort to traditional arguments
 
 #pause
 
@@ -311,7 +315,7 @@ Open questions: #pause
    Do we need to turn to...
    - understanding the structure of self-energies@Tamai2019?
    - ensemble DFT?
- - are off-diagonal corrections to these orbitals/subspaces physical?
+ - are off-diagonal corrections to these orbitals/subspaces physical? #pause
  - are we expecting too much of our approximations?
    - e.g. BLOR and SCE -- easier with reduced density matrix functional theory?
 
